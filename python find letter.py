@@ -14,7 +14,7 @@ def find_missing_letter(chars):
 # find_missing_letter(['a', 'b', 'c', 'd', 'f'])
 
 
-def match_brackets(string):
+def match_brackets(string):  # 这个用正则做在前面有额外字符的情况下会出错，原因不详
     free_open = 0
     free_close = 0
     for char in string:
@@ -30,4 +30,33 @@ def match_brackets(string):
     else:
         return False
 
-#print(match_brackets('hi(hi)()'))
+# print(match_brackets('hi(hi)()'))
+
+
+def duplicate_encode(string):
+    string = string.lower()
+    processed_string = ''
+    for char in string:
+        i = string.count(char)
+        if i != 1:
+            processed_string += ')'
+        else:
+            processed_string += '('
+    return processed_string
+
+
+# print(duplicate_encode('string'))
+
+
+def pig_it(text):
+    # your code here
+    word_list = text.split(' ')
+    processed_str = ''
+    print(word_list)
+    for word in word_list:
+
+        word = word[1:]+word[0]+'ay '
+        processed_str += word
+    return processed_str.strip(' ')
+
+print(pig_it('This is an example with non char !'))
